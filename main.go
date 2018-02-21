@@ -3,11 +3,15 @@ package main
 import (
 	"fmt"
 	"net/http"
+
+	"github.com/gorilla/mux"
 )
 
 func main() {
-	http.HandleFunc("/", hello)
-	http.ListenAndServe(":8080", nil)
+	r := mux.NewRouter()
+	r.HandleFunc("/", hello).Methods("GET")
+
+	http.ListenAndServe(":8080", r)
 }
 
 //	http://localhost:8080/?name=mark
