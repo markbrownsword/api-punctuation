@@ -3,24 +3,31 @@
 Micro service for the punctuation application
 
 ## prerequisites
+A working Go environment.
 - [Go](https://golang.org/doc/install)
 - [Dep](https://golang.github.io/dep/docs/introduction.html)
 - [Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
 
 ## setup
-Clone this repo into your Go src folder
+Add this repo into your Go src folder
+
+```sh
+$ go get github.com/markbrownsword/api-punctuation
+$ cd $GOPATH/src/github.com/markbrownsword/api-punctuation
+$ dep ensure # install dependencies
+```
 
 ## run - using go
-From the project root, start the web server
 
-    $ go run *.go
+```sh
+$ go run *.go
+```
 
 ## build docker container
 
 ```sh
 $ docker build -t faraway-api-punctuation .
 $ docker image ls
-$ docker run -p 5000:5000 -e PORT=5000 faraway-api-punctuation
 ```
 
 ## run - using docker container
