@@ -1,40 +1,52 @@
-# api-punctuation
+# Api Punctuation
 
 Micro service for the punctuation application
 
-## prerequisites
+## Prerequisites
+
 A working Go environment.
+
 - [Go](https://golang.org/doc/install)
 - [Dep](https://golang.github.io/dep/docs/introduction.html)
 - [Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
 
-## setup
+## Setup
+
 Add this repo into your Go src folder
 
 ```sh
-$ go get github.com/markbrownsword/api-punctuation
-$ cd $GOPATH/src/github.com/markbrownsword/api-punctuation
-$ dep ensure # install dependencies
+go get github.com/markbrownsword/api-punctuation
+cd $GOPATH/src/github.com/markbrownsword/api-punctuation
+dep ensure -vendor-only # install dependencies
 ```
 
-## run - using go
+## Debug
 
 ```sh
-$ go run *.go
+go run *.go
 ```
 
-## build docker container
+## Build Docker Container
 
 ```sh
-$ docker build -t faraway-api-punctuation .
-$ docker image ls
+docker build -t faraway-api-punctuation .
 ```
 
-## run - using docker container
+## Build Docker Container (Heroku)
 
 ```sh
-$ docker run -d -p 8080:8080 -e PORT=8080 faraway-api-punctuation
+docker build --file Dockerfile.Heroku -t faraway-api-punctuation-heroku .
 ```
 
-## routes
-- http://localhost:8080/health/ping
+## Run Docker Container
+
+```sh
+docker run -d -p 8080:8080 -e PORT=8080 <container-tag-name>
+docker ps
+docker container stop <imageid>
+
+```
+
+## Routes
+
+- <http://localhost:8080/health/ping>
