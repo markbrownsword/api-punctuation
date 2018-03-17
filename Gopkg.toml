@@ -24,6 +24,10 @@
 #   go-tests = true
 #   unused-packages = true
 
+[metadata.heroku]
+  root-package = "github.com/markbrownsword/api-punctuation"
+  go-version = "go1.10"
+  ensure = "true"
 
 [prune]
   go-tests = true
