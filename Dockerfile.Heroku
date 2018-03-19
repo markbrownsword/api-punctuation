@@ -11,6 +11,7 @@ RUN dep ensure -vendor-only
 # Build static binary
 RUN CGO_ENABLED=0 GOOS=linux go build -a -ldflags '-extldflags "-static"' -o goapp
 
+#########################
 # Final image - Heroku:16
 FROM heroku/heroku:16
 COPY --from=build-env /go/src/github.com/markbrownsword/api-punctuation/goapp /app/
@@ -19,3 +20,6 @@ WORKDIR /app
 RUN useradd -m heroku
 USER heroku
 CMD ./goapp
+
+# Usuage
+# docker build --file Dockerfile.Heroku -t faraway-api-punctuation-heroku .
