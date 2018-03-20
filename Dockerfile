@@ -1,8 +1,8 @@
 FROM golang:1.10 AS build-env
 
 # Setup working Directory
-COPY . "/go/src/github.com/markbrownsword/api-punctuation"
-WORKDIR "/go/src/github.com/markbrownsword/api-punctuation"
+COPY . "/go/src/github.com/markbrownsword/faraway-api-punctuation"
+WORKDIR "/go/src/github.com/markbrownsword/faraway-api-punctuation"
 
 # Go dep!
 RUN go get -u github.com/golang/dep/...
@@ -17,7 +17,7 @@ FROM alpine
 
 WORKDIR /app
 
-COPY --from=build-env /go/src/github.com/markbrownsword/api-punctuation/goapp /app/
+COPY --from=build-env /go/src/github.com/markbrownsword/faraway-api-punctuation/goapp /app/
 
 RUN apk --no-cache add ca-certificates
 
