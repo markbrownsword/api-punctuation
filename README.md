@@ -1,4 +1,4 @@
-# Api Punctuation
+# Faraway Api Punctuation
 
 Micro service for the punctuation application
 
@@ -15,9 +15,9 @@ A working Go environment.
 Add this repo into your Go src folder
 
 ```sh
-go get github.com/markbrownsword/api-punctuation
-cd $GOPATH/src/github.com/markbrownsword/api-punctuation
-dep ensure -vendor-only # install dependencies
+go get github.com/markbrownsword/faraway-api-punctuation
+cd $GOPATH/src/github.com/markbrownsword/faraway-api-punctuation
+dep ensure -vendor-only # installs dependencies
 ```
 
 ## Debug
@@ -35,7 +35,7 @@ docker build -t faraway-api-punctuation .
 ## Run Docker Container
 
 ```sh
-docker run -d -p 8080:8080 -e PORT=8080 <container-tag-name>
+docker run -d -p 8080:8080 -e PORT=8080 faraway-api-punctuation
 docker ps
 docker container stop <imageid>
 
