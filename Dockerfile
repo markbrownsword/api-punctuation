@@ -11,8 +11,14 @@ RUN dep ensure -vendor-only
 # Build static binary
 RUN CGO_ENABLED=0 GOOS=linux go build -a -ldflags '-extldflags "-static"' -o goapp
 
+#############
 # Final image
 FROM alpine
+
 WORKDIR /app
+
 COPY --from=build-env /go/src/github.com/markbrownsword/api-punctuation/goapp /app/
+
+RUN apk --no-cache add ca-certificates
+
 CMD ./goapp

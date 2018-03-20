@@ -32,12 +32,6 @@ go run *.go
 docker build -t faraway-api-punctuation .
 ```
 
-## Build Docker Container (Heroku)
-
-```sh
-docker build --file Dockerfile.Heroku -t faraway-api-punctuation-heroku .
-```
-
 ## Run Docker Container
 
 ```sh
